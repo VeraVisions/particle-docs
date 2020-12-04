@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>Particle Manual: General Keywords</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+<h1>2 General Keywords</h1>
+
+<h2><a name = "type">2.1 type &lt;mode&gt;</a></h2>
+<p><pre class = "type">
+	How the particles look.
+
+	Mode may be:
+		beam: valid only for trails. Particles form a single textured beam acting as nodes along it.
+		spark: particles are lines, their length depending upon their speed.
+		sparkfan: particles are non-planar triangle fans, their length depending upon their speed.
+		texturedspark: textured particles are aligned along their direction of movement, their length depending upon their speed, width equal to their scale.
+		cdecal/decal: particles are spawned only upon bsp geometry. They are clipped by it.
+		udecal: unclipped decal. exact semantics are subject to change.
+		normal/*default*: Particles are regular, rotating, 2d images.
+</pre>
+
+<h2><a name = "count">2.2 count &lt;min&gt; &lt;max&gt;</a></h2>
+<p><pre class = "type">
+	Point/box effects only (not trails or beams)
+	Specifies how many particles are spawned per effect (some classic effects contain an extra scaler which is multiplied by the resulting value)
+</pre>
+
+<h2><a name = "assoc">2.3 assoc &lt;effectname&gt;</a></h2>
+<p><pre class = "type">
+	Specifies another effect to spawn at the same time that this effect is spawned.
+	Thus allowing two sets of particles from one effect.
+</pre>
+
+<h2><a name = "die">2.4 die &lt;maximum age&gt; &lt;minimum age&gt;</a></h2>
+<p><pre class = "type">
+	Specifies the maximum age of the particle, in seconds.
+</pre>
+
+<h2><a name = "spawnmode">2.5 spawnmode &lt;mode&gt; [arg1] [arg2]</a></h2>
+<p><pre class = "type">
+	This affects how particles are positioned when they first spawn, and their initial velocities.
+
+	For point effects, mode may be one of:
+		box: simple axially aligned box of particles.
+		circle: particles spawn within a ball with uniform distance from the center. none will appear in the middle.
+			arg1: percentage of the circle to cover. a value of 5 will go around the circle 5 separate times. this can be used for weird beam effects.
+			areaspread: the radius of the ball
+			areaspreadvert: the height of the ball. if 0, will be a flat circle
+		ball: particles spawn randomly within a ball.
+			areaspread: the radius of the ball
+			areaspreadvert: the height of the ball. if 0, will be a flat circle.
+		telebox: matches quake's telebox
+		lavasplash: like chthon's lava splash
+		uniformcircle: particles are spawned in a circle with uniform distance between and from the center. z=0.
+		syncfield: particles spawn at predictable locations based upon time within a rough sphere. Only useful for effects that are regenerated+replaced every frame.
+		distball:
+		*default*: regular box. particles are spawned inside an axially aligned box.
+
+	For trail effects, mode may be one of:
+		spiral: particles are given velocities perpendicular to the direction based on the distance moved.
+		tracer: particles spawn with alternating horizontal velocities (a wake effect).
+		*default*: particles spawn as a regular trail.
+</pre>
+
+<h2><a name = "clippeddecal">2.6 clippeddecal &lt;mask&gt; [match]</a></h2>
+<p><pre class = "type">
+	Implies 'type decal'.
+	The two extra args allow you to spawn these decals ONLY on surfaces with matching surfaceflags.
+	Separation of mask+match allows you to create many descrete surface types instead of being limited to 32 bits/types.
+</pre>
+
+<h2><a name = "spawntime">2.7 spawntime &lt;value&gt;</a></h2>
+<h2><a name = "spawnchance">2.8 spawnchance &lt;value&gt;</a></h2>
+
+
+<h2><a name = "emit">2.9 emit &lt;effectname&gt;</a></h2>
+<p><pre class = "type">
+	Specifies the effect to periodically emit.
+</pre>
+
+<h2><a name = "emitinterval">2.10 emitinterval &lt;min&gt;</a></h2>
+<p><pre class = "type">
+	Particles will not emit additional effects for this duration after emitting one.
+</pre>
+
+<h2><a name = "emitintervalrand">2.11 emitintervalrand &lt;extra&gt;</a></h2>
+<p><pre class = "type">
+	FIXME: fold into emitinterval
+</pre>
+
+<h2><a name = "emitstart">2.12 emitstart &lt;seconds&gt;</a></h2>
+<p><pre class = "type">
+	Prevents the particle from emitting anything for this duration when it first spawns.
+</pre>
+
+<h2><a name = "perframe">2.13 perframe</a></h2>
+<p><pre class = "type">
+	Apply inverse frametime to count (causes emits to be per frame).
+</pre>
+
+<h2><a name = "averageout">2.14 averageout</a></h2>
+<p><pre class = "type">
+	Average trail points from start to end, useful with t_lightning, etc
+</pre>
+
+<h2><a name = "nostate">2.15 nostate</a></h2>
+<p><pre class = "type">
+	Causes the particle system to ignore all state information.
+</pre>
+
+<h2><a name = "sound">2.16 sound &lt;name&gt; [options]</a></h2>
+<p><pre class = "type">
+	Plays a sound when the effect is spawned.
+	Only ONE sound will be used, picked randomly from the included sounds according to their weights.
+
+	Options are:
+		vol=
+		attn=
+		pitch=
+		delay=
+		weight=
+</pre>
+
+<h2><a name = "model">2.17 model &lt;name&gt; [options]</a></h2>
+<p><pre class = "type">
+	Spawns sprites or models that fly away with random angles and run through
+	some frame sequence. handy for simple gib effects.
+
+	Options are:
+		frame=
+		framestart=
+		framecount=
+		frameend=
+		frames=
+		framerate=
+		skin=
+		alpha=
+		scalemin=
+		scalemax=
+		trail=
+		orient
+		additive
+		transparent
+		fullbright
+		shadow
+		noshadow
+</pre>
+
+<h2><a name = "viewspace">2.18 viewspace [frac]</a></h2>
+<p><pre class = "type">
+	Specifies that this particle type should move relative to the camera.
+	Should not normally be used in combination with clipping/bouncing.
+	Not compatible with most splitscreen games.
+</pre>
+
+<p align = "center"><a href = "../ch01/pg1_1.htm">Back</a> | <a href = "../index.html">Home</a> | <a href = "../ch03/pg3_1.htm">Next</a>
+
+</body>
+</html>

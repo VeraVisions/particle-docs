@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Particle Manual: Texture Keywords</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+<h1>3 Texture Keywords</h1>
+
+<h2><a name = "texture">3.1 texture &lt;texturename&gt;</a></h2>
+<p><pre class = "type">
+	Specifies to use an image named texturename for this effect.
+</pre>
+
+<h2><a name = "material">3.2 material &lt;materialname&gt;</a></h2>
+<p><pre class = "type">
+	Specifies to use a named material.
+	This overrides blendmodes, as no new material will need to be created.
+</pre>
+
+<h2><a name = "tcoords">3.3 tcoords &lt;s1&gt; &lt;t1&gt; &lt;s2&gt; &lt;t2&gt; [tscale] [rsmax] [rsstep]</a></h2>
+<p><pre class = "type">
+	Specifies to use a subsection of the image.
+
+	If 'tscale' is set, all units are divided by this. it is the virtual size of
+	your texture.
+	So a value of 1 means that your texture coords must be between 0 and 1.
+	But if it properly matches your texture's size, the coords are in pixels.
+
+	If 'rsmax' is present, each particle will use a random image.
+	These images must be on a single row in your particle font.
+
+	'rsstep' specifies the stride (gap from one to the next) in your particle
+	font, and is only needed if 'rsmax' is present and greater than 1.
+</pre>
+
+<h2><a name = "atlas">3.4 atlas count_in_each_axis firstidx [last]</a></h2>
+<p><pre class = "type">
+	An alternative to tcoords.
+	The specified texture (or material) is to be considered as a grid of sprites (x*x, where x is specified in that first arg).
+	'firstidx' specifies the first image to use (horizontal THEN vertical).
+	'last' specifies the last image to use (inclusive). The engine will pick one at random. They should not span multiple rows.
+</pre>
+
+<h2><a name = "rotation">3.5 rotation &lt;startmin&gt; &lt;startmax&gt; &lt;speedmin&gt; &lt;speedmax&gt;</a></h2>
+<p><pre class = "type">
+	The particle will start with a rotation rotated between 'startmin' and 'startmax'.
+	It will then rotate with some per-particle value randomly picked between the 'speedmin' + 'speedmax' values.
+	Should NOT be used on beam particles.
+</pre>
+
+<h2><a name = "beamtexstep">3.6 beamtexstep &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Only valid if the effect is a beam.
+	Specifies the number of quake units per beam texture repitition.
+</pre>
+
+<h2><a name = "beamtexspeed">3.7 beamtexspeed &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Only valid if the effect is type 'beam'.
+	Controls how fast the texture scrolls on the beam.
+</pre>
+
+<h2><a name = "scale">3.8 scale &lt;min&gt; [max]</a></h2>
+<p><pre class = "type">
+	Particles will start with a diameter of this many quake units.
+	Actual scale will be randomly chosen between 'min' and 'max' ('max' defaults to equal if 'min' is missing)
+</pre>
+
+<h2><a name = "scalefactor">3.9 scalefactor &lt;frac&gt;</a></h2>
+<p><pre class = "type">
+	Controls how the particle scales with distance.
+	1 makes the particle scale the same as anything else
+	0 makes the particle not change size no matter how far it is
+</pre>
+
+<h2><a name = "stretchfactor">3.10 stretchfactor &lt;factor&gt;</a></h2>
+<p><pre class = "type">
+	Controls how spark particles stretch according to their velocity.
+	Negative values give fixed length sparks.
+</pre>
+
+<h2><a name = "scaledelta">3.11 scaledelta &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Controls how the particle scales over time
+	Specifies the change in the particle scale per second.
+</pre>
+
+<h2><a name = "step">3.12 step &lt;min&gt; &lt;max&gt;</a></h2>
+<p><pre class = "type">
+	Trails/beams only
+	Specifies the distance between each particle in the trail (or beam).
+</pre>
+
+
+<p align = "center"><a href = "../ch02/pg2_1.htm">Back</a> | <a href = "../index.html">Home</a> | <a href = "../ch04/pg4_1.htm">Next</a>
+
+</body>
+</html>

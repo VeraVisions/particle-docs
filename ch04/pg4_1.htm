@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Particle Manual: Color Keywords</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+<h1>4 Color Keywords</h1>
+
+<h2><a name = "alpha">4.1 alpha &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Specifies the initial alpha value of the effect
+</pre>
+
+<h2><a name = "alpharand">4.2 alpharand &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Specifies a randomized additonal value added to each particle's initial alpha.
+</pre>
+
+<h2><a name = "alphadelta">4.3 alphadelta &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Specifies how much the alpha value of the effect changes per second (subtracted)
+</pre>
+
+<h2><a name = "rgbdeltatime">4.4 rgbdeltatime &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Specifies for how long the particle may change colours for.
+	After this many seconds, the particle may no longer change colours (delta becomes 0).
+</pre>
+
+<h2><a name = "rampmode">4.5 rampmode &lt;mode&gt;</a></h2>
+<p><pre class = "type">
+	Mode may be one of:
+	none: uses rgb+rand+sync+delta+scale+scaledelta values.
+	nearest(or absolute): the ramp overrides all colour+scale values. The effect moves from one absolute ramp index to the next.
+	lerp: smoothly interpolates from one value to the next.
+	delta: uses rgb+rand+sync+scale, but not delta values. All delta values come from the colour ramp instead.
+
+	If not none, the ramp index used is based upon the particle's age, its lifetime, and how many ramp elements there are.
+</pre>
+
+<h2><a name = "rampindexlist">4.6 rampindexlist &lt;idx1&gt; [&lt;idx2&gt; [idx3 ...]]</a></h2>
+<p><pre class = "type">
+	Scale used is the currently set scale value.
+	Specifies a set of palette index values to use for the effect as part of the effect's colour ramp.
+</pre>
+
+<h2><a name = "rampindex">4.7 rampindex &lt;idx&gt; &lt;scale&gt;</a></h2>
+<p><pre class = "type">
+	Specifies an individual palette index value and particle scale to use for the effect as part of the effect's colour ramp
+</pre>
+
+<h2><a name = "ramp">4.8 ramp &lt;red&gt; &lt;green&gt; &lt;blue&gt; [alpha] [scale]</a></h2>
+<p><pre class = "type">
+	Specifies a ramp index in rgb terms, regardless of palette.
+</pre>
+
+<h2><a name = "blend">4.9 blend &lt;mode&gt;</a></h2>
+<p><pre class = "type">
+	If the texture used is actually a material then that material's blend mode will take precidence.
+	As a general rule you should try to use only the premul blend modes (as well as atlasing).
+
+	Mode may be one of:
+		adda: 
+		addc:
+		subtract:
+		invmoda:
+		invmodc:
+		blendcolour:
+		blendalpha:
+		premul_subtract:
+		premul_add:
+		premul_blend:
+		rtsmoke:
+</pre>
+
+<h2><a name = "stains">4.10 stains &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	How much the effect discolours the wall upon impact.
+	The stained colour is based upon the colour of the particle upon impact.
+</pre>
+
+<h2><a name = "spawnstain">4.11 spawnstain &lt;radius&gt; &lt;r&gt; &lt;g&gt; &lt;b&gt;</a></h2>
+<p><pre class = "type">
+	Controls whether a stain will be created at the same time as any particles
+	(instead of depending upon impacts).
+</pre>
+
+
+<p align = "center"><a href = "../ch03/pg3_1.htm">Back</a> | <a href = "../index.html">Home</a> | <a href = "../ch05/pg5_1.htm">Next</a>
+
+</body>
+</html>

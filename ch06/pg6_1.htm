@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Particle Manual: Light Keywords</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+<h1>6 Light Keywords</h1>
+
+<h2><a name = "lightradius">6.1 lightradius &lt;radius&gt;</a></h2>
+<p><pre class = "type">
+	Spawns a dynamic light when the effect is spawned.
+	The dynamic light is removed when radius drops to 0 or the age is exceeded.
+	At this time it is not possible to override the corona/specular levels.
+</pre>
+
+<h2><a name = "lightradiusfade">6.2 lightradiusfade &lt;radiuspersecond&gt;</a></h2>
+<p><pre class = "type">
+	How fast the light radius shrinks per second.
+</pre>
+
+<h2><a name = "lightrgb">6.3 lightrgb &lt;r&gt; &lt;g&gt; &lt;b&gt;</a></h2>
+<p><pre class = "type">
+	Dynamic light RGB colours.
+	Higher values can over-saturate.
+</pre>
+
+<h2><a name = "lightrgbfade">6.4 lightrgbfade &lt;r/s&gt; &lt;g/s&gt; &lt;b/s&gt;</a></h2>
+<p><pre class = "type">
+	How fast 'lightrgb' changes over time.
+</pre>
+
+<h2><a name = "lighttime">6.5 lighttime &lt;maxage&gt;</a></h2>
+<p><pre class = "type">
+	Specifies the maximum lifetime of your dynamic light.
+</pre>
+
+<h2><a name = "lightcubemap">6.6 lightcubemap &lt;cubemapnum&gt;</a></h2>
+<p><pre class = "type">
+	Value 0 means no cubemap.
+	otherwise with eg cubemap 5, uses image files cubemaps/5ft.tga, cubemaps/5bk.tga, etc.
+
+	FIXME: At the current time, the cubemap is world-aligned and cannot rotate.
+</pre>
+
+<h2><a name = "lightscales">6.7 lightscales &lt;ambient&gt; &lt;diffuse&gt; &lt;specular&gt;</a></h2>
+<p><pre class = "type">
+	Multipliers for the dynamic light's various types of lighting
+</pre>
+
+<h2><a name = "lightshadows">6.8 lightshadows &lt;castshadows&gt;</a></h2>
+<p><pre class = "type">
+	0 or 1, specifies whether the dynamic light will cast shadows or not.
+	Its faster if it doesn't.
+</pre>
+
+<h2><a name = "lightcorona">6.9 lightcorona &lt;intensity&gt; &lt;scale&gt;</a></h2>
+<p><pre class = "type">
+	Defines the intensity (the glare) and size of the corona the dynamic light
+	will cast.
+</pre>
+
+<p align = "center"><a href = "../ch05/pg5_1.htm">Back</a> | <a href = "../index.html">Home</a>
+
+</body>
+</html>

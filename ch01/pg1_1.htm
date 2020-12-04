@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Particle Manual: Introduction</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+
+<h1><a name = "intro">1 Introduction</a></h1>
+
+The particle system defined in the engine encompasses more than just flying
+sprites.
+<br>
+The particle system is a pipeline through which models, beams and
+trail effects can be defined and utilized by the game-logic without having to
+know how to program a single line of code.
+
+<p>In this document we'll go over the conventions and commands you need to look
+at if you want to create particle effects.
+
+<h2><a name = "what">1.1 What is a particle config?</a></h2>
+
+Particle configs short text scripts that define the properties of a particle
+effect as it appears and interacts in a game world.
+<br>
+For example, it defines which textures and shapes are used and if they emit
+sound, light or collide with the geometry around them.
+
+<p>Particle configs are located in the particles/ directory, using the '.cfg'
+file extension.
+
+<p>Contained within a particle config we can define multiple effects of similar
+nature. Let's look at the particle config: 'particles/volume.cfg' which as of
+this writing only contains one entry:
+
+<p><pre class = "type">
+r_part dustmote
+{
+	texture		ball
+	type			normal
+	count			1
+	blend			add
+	rgbf 0 0 0
+	alpha 0
+
+	rampmode lerp
+	ramp 0 0 0 0 0.5
+	ramp 0 0 0 0 0.5
+	ramp 0 0 0 0 0.5
+	ramp 255 255 190 0.5 0.5
+	ramp 0 0 0 0 0.5
+
+	die				10 5
+	gravity			1
+	scalefactor		0
+} 
+</pre>
+
+<p>This is a more complex material, dealing with pre-programmed color and alpha
+changes over time to create the effect of dust traveling inside a volume.
+
+<h2><a name = "conventions">1.2 Particle Name &amp; File Conventions</a></h2>
+The first line tells the engine that we're defining a new particle effect with
+the name 'dustmote'.
+<br>
+As this effect is defined in the file 'volume.cfg', the
+name by which this specific effect will be accessible is 'volume.dustmote'.
+
+<p align = "center">Back | <a href = "../index.html">Home</a> | <a href = "../ch02/pg2_1.htm">Next</a>
+
+</body>
+</html>

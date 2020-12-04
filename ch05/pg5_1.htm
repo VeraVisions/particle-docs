@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>Particle Manual: Physics Keywords</title>
+<link rel = "stylesheet" type = "text/css" href = "../styles/design.css">
+</head>
+<body>
+<h1 class = "MsoTitle">Particle Manual</h1>
+<hr>
+<h1>5 Physics Keywords</h1>
+
+<h2><a name = "randomvel">5.1 randomvel &lt;horiz&gt; [vert]</a></h2>
+<p><pre class = "type">
+	Controls how fast the particle moves when it spawns (according to its spawn pattern).
+	This works regardless of any requested velocities.
+
+	If 'vert' is not specified, 'horiz' is used instead.
+</pre>
+
+<h2><a name = "veladd">5.2 veladd &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Controls how much of the effect's spawn velocity is used, can be greater than 1, or negative.
+</pre>
+
+<h2><a name = "orgadd">5.3 orgadd &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Biases how much to add to the starting origin relative to the requested velocity.
+</pre>
+
+<h2><a name = "orgbias">5.4 orgbias &lt;x&gt; &lt;y&gt; &lt;z&gt;</a></h2>
+<p><pre class = "type">
+	Biases the particle's origin by this absolute worldspace vector, regardless of spawn mode.
+</pre>
+
+<h2><a name = "velbias">5.5 velbias</a></h2>
+<p><pre class = "type">
+	Biases the particle's velocity by this absolute worldspace vector, regardless of spawn mode.
+</pre>
+
+<h2><a name = "orgwrand">5.6 orgwrand</a></h2>
+<p><pre class = "type">
+	Randomised offset for the particle's origin, in worldspace.
+</pre>
+
+<h2><a name = "velwrand">5.7 velwrand</a></h2>
+<p><pre class = "type">
+	Randomised offset for the particle's origin, in worldspace.
+</pre>
+
+<h2><a name = "friction">5.8 friction &lt;&lt;xyz&gt;|&lt;xy&gt; &lt;z&gt; | &lt;x&gt; &lt;y&gt; &lt;z&gt;&gt;</a></h2>
+<p><pre class = "type">
+	Proportion of the particle's speed that should be lost from friction. Negative values are accepted.
+</pre>
+
+<h2><a name = "gravity">5.9 gravity &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	Amount that the particle's velocity changes per second, in units.
+</pre>
+
+<h2><a name = "clipbounce">5.10 clipbounce &lt;value&gt;</a></h2>
+<p><pre class = "type">
+	how much of the particle's velocity to use if the particle is clipped. See cliptype.
+	Defaults to 0.8
+</pre>
+
+<h2><a name = "cliptype">5.11 cliptype &lt;effectname&gt;</a></h2>
+<p><pre class = "type">
+	Specifies which new effect to spawn when the particle hits something.
+	The origin and velocity of the particle are used to spawn the new effect.
+	The clipbounce value is used as a scaler for the reflected velocity.
+	If the effect named is the effect itself, the particle will merely bounce, instead of spawning a new effect.
+
+	FIXME: make default to bounce if clipbounce is set without cliptype.
+</pre>
+
+<h2><a name = "clipcount">5.12 clipcount &lt;count&gt;</a></h2>
+<p><pre class = "type">
+	The scaler to use for the number of particles to spawn upon a clip event.
+	Only valid in conjunction with 'cliptype'.
+</pre>
+
+<h2><a name = "notunderwater">5.13 notunderwater [content names]</a></h2>
+<p><pre class = "type">
+	Specifies that this particle should ONLY be spawned when out of water.
+	The particle will not spawn under water (this does not affect assoc chains).
+
+	Content names are a space-separated list of: water slime lava sky solid fluid.
+	Default is 'fluid' if not specified.
+
+	The r_part_contentswitch cvar must be enabled for this to function correctly.
+</pre>
+
+<h2><a name = "underwater">5.14 underwater [content names]</a></h2>
+<p><pre class = "type">
+	Specifies that this particle should ONLY be spawned when underwater.
+	The particle will not spawn if the spawn position is non-water (this does not affect assoc chains).
+</pre>
+
+<h2><a name = "perframe">5.15 perframe</a></h2>
+<p><pre class = "type">
+	Apply inverse frametime to count (causes emits to be per frame).
+</pre>
+
+<h2><a name = "averageout">5.16 averageout</a></h2>
+<p><pre class = "type">
+	Average trail points from start to end, useful with t_lightning, etc
+</pre>
+
+<h2><a name = "nospreadfirst">5.17 nospreadfirst</a></h2>
+<p><pre class = "type">
+	Don't randomize position/velocity for first generated particle.
+</pre>
+
+<h2><a name = "nospreadlast">5.18 nospreadlast</a></h2>
+<p><pre class = "type">
+	Don't randomize position/velocity for last generated particle.
+</pre>
+
+<h2><a name = "rainfrequency">5.19 rainfrequency &lt;multiplier&gt;</a></h2>
+<p><pre class = "type">
+	Specifies the interval between spawning new particle puffs on surfaces.
+</pre>
+
+<h2><a name = "flurry">5.20 flurry &lt;magnitude&gt;</a></h2>
+<p><pre class = "type">
+	These particles will periodically all change their direction, in a vauge attempt to approximate snow flurries.
+</pre>
+
+
+<p align = "center"><a href = "../ch04/pg4_1.htm">Back</a> | <a href = "../index.html">Home</a> | <a href = "../ch06/pg6_1.htm">Next</a>
+
+</body>
+</html>
